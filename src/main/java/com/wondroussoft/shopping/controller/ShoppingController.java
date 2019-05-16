@@ -3,36 +3,29 @@ package com.wondroussoft.shopping.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import com.wondroussoft.shopping.model.Wear;
-import com.wondroussoft.shopping.model.Category;
-import com.wondroussoft.shopping.model.Item;
-import com.wondroussoft.shopping.model.Season;
+import com.wondroussoft.shopping.model.entities.Category;
+import com.wondroussoft.shopping.model.entities.Item;
+import com.wondroussoft.shopping.model.entities.Season;
+import com.wondroussoft.shopping.model.entities.Wear;
+import com.wondroussoft.shopping.model.repo.SeasonRepository;
 
 @Controller
 public class ShoppingController {
+	
+	@Autowired
+	SeasonRepository repoSeason;
+	
 
 	@GetMapping("/seasons")
 	public String getSeasons(ModelMap map) {
-		List<Season> seasons = new ArrayList<Season>();
-
-		Season season = new Season(1L, "Winter");
-
-		seasons.add(season);
-		season = new Season(2L, "Summer");
-
-		seasons.add(season);
-		season = new Season(3L, "Spring");
-
-		seasons.add(season);
-		season = new Season(4L, "Rainy");
-
-		seasons.add(season);
-
+		List<Season> seasons = repoSeason.findAll();
+		
 		map.put("seasons", seasons);
 		
 		return "seasons";

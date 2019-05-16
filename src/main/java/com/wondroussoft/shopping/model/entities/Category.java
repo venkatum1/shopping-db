@@ -1,4 +1,4 @@
-package com.wondroussoft.shopping.model;
+package com.wondroussoft.shopping.model.entities;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
