@@ -5,22 +5,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-#seasons {
+#wears {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 30%;
 }
 
-#seasons td, #seasons th {
+#wears td, #seasons th {
   border: 1px solid #ddd;
   padding: 8px;
 }
 
-#seasons tr:nth-child(even){background-color: #f2f2f2;}
+#wears tr:nth-child(even){background-color: #f2f2f2;}
 
-#seasons tr:hover {background-color: #ddd;}
+#wears tr:hover {background-color: #ddd;}
 
-#seasons th {
+#wears th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
@@ -28,25 +28,22 @@
   color: white;
 }
 </style>
-
 </head>
 
 <body>
-	<h2>List of seasons</h2>
+	<h2>List of wear</h2>
+	<table id="wears">
 
-	<table id="seasons">
-    
-    <tr>
+	<tr>
 			<th>Id</th>
 			<th>Name</th>
+			
 		</tr>
 
-		<tr th:each="season : ${seasons}">
-			<td th:text="${season.id}">Id</td>
-			<td th:text="${season.name}">Name</td>
-			 
-			 
-</tr>
+		<tr th:each="wear: ${wears}">
+		    <td th:text="${wear.id}">wearId</td>
+			<td th:text="${wear.name}">Name</td>
+		</tr>
 	</table>
 
 </body>

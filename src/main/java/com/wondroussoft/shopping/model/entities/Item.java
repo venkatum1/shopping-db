@@ -1,28 +1,40 @@
 
 package com.wondroussoft.shopping.model.entities;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-public class Item {@Id
+@Entity
+public class Item {
+	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String name;
 	private int price;
 	private String size;
+	private String color;
 	private Long categoryId;
-	
 
 	public Item() {
 	}
 
-	public Item(Long id, String name, Long categoryId, int price, String size) {
+	public Item(Long id, String name, Long categoryId, int price, String size,String color) {
 		this.id = id;
 		this.name = name;
 		this.price = price;
 		this.size = size;
+		this.color=color;
 		this.categoryId = categoryId;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
 	}
 
 	public Long getId() {
@@ -65,7 +77,4 @@ public class Item {@Id
 		this.size = size;
 	}
 
-	
-
 }
-

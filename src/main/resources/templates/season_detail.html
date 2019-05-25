@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>season list</title>
+<title>season</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-#seasons {
+#seasondetail {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 30%;
 }
 
-#seasons td, #seasons th {
+#seasondetail td, #seasons th {
   border: 1px solid #ddd;
   padding: 8px;
 }
 
-#seasons tr:nth-child(even){background-color: #f2f2f2;}
+#seasondetail tr:nth-child(even){background-color: #f2f2f2;}
 
-#seasons tr:hover {background-color: #ddd;}
+#seasondetail tr:hover {background-color: #ddd;}
 
-#seasons th {
+#seasondetail th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
@@ -28,25 +28,22 @@
   color: white;
 }
 </style>
-
 </head>
 
 <body>
-	<h2>List of seasons</h2>
 
-	<table id="seasons">
+	<h2>Season Details</h2>
+	<table id="seasondetail">
     
     <tr>
-			<th>Id</th>
+		   <th>Id</th>
 			<th>Name</th>
 		</tr>
 
-		<tr th:each="season : ${seasons}">
+		<tr>
 			<td th:text="${season.id}">Id</td>
 			<td th:text="${season.name}">Name</td>
-			 
-			 
-</tr>
+		</tr>
 	</table>
 
 </body>

@@ -1,20 +1,25 @@
 package com.wondroussoft.shopping.model.entities;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@Entity
 public class Wear {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String name;
-	private Long SeasonId;
+	private Long seasonId;
 	
-    public Wear(Long id, String name, Long SeasonId) {
+	public Wear() {
+		
+	}
+    public Wear(Long id, String name, Long seasonId) {
 		this.id = id;
 		this.name = name;
-		this.SeasonId = SeasonId;
+		this.seasonId = seasonId;
 	}
     
 	public Long getId() {
@@ -34,11 +39,11 @@ public class Wear {
 	}
 
 	public Long getSeasonId() {
-		return SeasonId;
+		return seasonId;
 	}
 
-	public void setSeasonId(Long SeasonId) {
-		this.SeasonId = SeasonId;
+	public void setSeasonId(Long seasonId) {
+		this.seasonId = seasonId;
 	}
 
 }
