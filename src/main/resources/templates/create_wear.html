@@ -35,18 +35,16 @@
 </head>
 
 <body>
-	<h2>Season</h2>
+	<h2>Wear</h2>
 
-	<form action="#" th:action="@{/season}" th:object="${season}"
-		method="post">
+	<form action="#" th:action="@{'/seasons/' + ${seasonId} + '/wear'}"
+		th:object="${wear}" method="post">
 		<table border="1">
 			<tr>
-				<td th:if="${season}"><input th:value="${season.id}"
-					type="hidden" name="id" /></td>
-				<td th:if="${season}"><input th:value="${season.name}"
-					type="text" name="name" /></td>
-				<td th:unless="${season}"><input type="hidden" name="id" /></td>
-				<td th:unless="${season}"><input type="text" name="name" /></td>
+				<td><input type="text" name="name" /></td>
+			</tr>
+			<tr>
+				<td><input th:value="${seasonId}" type="hidden" name="seasonId" /></td>
 			</tr>
 			<tr>
 				<td><input type="submit" value="Submit" /></td>

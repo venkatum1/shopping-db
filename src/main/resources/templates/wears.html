@@ -6,43 +6,49 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 #wears {
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 30%;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+	width: 30%;
 }
 
 #wears td, #seasons th {
-  border: 1px solid #ddd;
-  padding: 8px;
+	border: 1px solid #ddd;
+	padding: 8px;
 }
 
-#wears tr:nth-child(even){background-color: #f2f2f2;}
+#wears tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
 
-#wears tr:hover {background-color: #ddd;}
+#wears tr:hover {
+	background-color: #ddd;
+}
 
 #wears th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #4CAF50;
-  color: white;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: #4CAF50;
+	color: white;
 }
 </style>
 </head>
 
 <body>
-	<h2>List of wear</h2>
+	<h2 th:text="'List of wears for ' + ${season.name}"></h2>
+	<a th:text="'Add wear for ' + ${season.name}"
+		th:href="@{'/seasons/' + ${season.id} + '/wear'}"></a>
 	<table id="wears">
-
-	<tr>
+		<tr>
 			<th>Id</th>
 			<th>Name</th>
-			
 		</tr>
-
 		<tr th:each="wear: ${wears}">
-		    <td th:text="${wear.id}">wearId</td>
+			<td th:text="${wear.id}">Id</td>
 			<td th:text="${wear.name}">Name</td>
+			<td><a
+				th:href="@{'/seasons/' + ${season.id} + '/wear/' + ${wear.id}}">Delete</a></td>
+			<td><a th:href="@{'/wears/' + ${wear.id} + '/categories'}">Categories</a></td>
 		</tr>
 	</table>
 

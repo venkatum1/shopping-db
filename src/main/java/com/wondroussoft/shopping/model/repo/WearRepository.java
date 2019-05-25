@@ -11,7 +11,7 @@ import org.springframework.data.repository.CrudRepository;
 @Repository
 public interface WearRepository extends CrudRepository<Wear, Long> {
 	
-	//List<Wear> findAll();
+	List<Wear> findAll();
 	//Optional<Wear> findById(Long id);
 	List<Wear> findBySeasonId(Long seasonId);
 	

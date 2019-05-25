@@ -8,20 +8,21 @@ import javax.persistence.Id;
 @Entity
 public class Wear {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
 	private Long seasonId;
-	
+
 	public Wear() {
-		
+
 	}
-    public Wear(Long id, String name, Long seasonId) {
+
+	public Wear(Long id, String name, Long seasonId) {
 		this.id = id;
 		this.name = name;
 		this.seasonId = seasonId;
 	}
-    
+
 	public Long getId() {
 		return id;
 	}

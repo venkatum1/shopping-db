@@ -6,26 +6,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 #items {
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 30%;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+	width: 30%;
 }
 
 #items td, #seasons th {
-  border: 1px solid #ddd;
-  padding: 8px;
+	border: 1px solid #ddd;
+	padding: 8px;
 }
 
-#items tr:nth-child(even){background-color: #f2f2f2;}
+#items tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
 
-#items tr:hover {background-color: #ddd;}
+#items tr:hover {
+	background-color: #ddd;
+}
 
 #items th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #4CAF50;
-  color: white;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: #4CAF50;
+	color: white;
 }
 </style>
 </head>
@@ -37,20 +41,20 @@
 		<tr>
 			<th>Id</th>
 			<th>Name</th>
-			<th>price</th>
-			<th>size</th>
-			<th>color</th>
-			
+			<th>Price</th>
+			<th>Size</th>
+			<th>Color</th>
+
 		</tr>
 
 		<tr th:each="item : ${items}">
 			<td th:text="${item.id}">Id</td>
 			<td th:text="${item.name}">Name</td>
-			<td th:text="${item.price}">price</td>
-		    <td th:text="${item.size}">size</td>
-		    <td th:text="${item.color}">color</td>
-			
-	</tr>
+			<td th:text="${item.price}">Price</td>
+			<td th:text="${item.size}">Size</td>
+			<td th:text="${item.color}">Color</td>
+
+		</tr>
 	</table>
 
 </body>
