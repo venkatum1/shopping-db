@@ -52,6 +52,16 @@
 			<td><a th:href="@{'/season/' + ${season.id}}">Delete</a></td>
 			<td><a th:href="@{'/seasons/' + ${season.id} + '/wears'}">Wears</a></td>
 			<td><a th:href="@{'/season/' + ${season.id} + '/edit'}">Edit</a></td>
+			<td><table id="wears">
+					<tr>
+						<th>Id</th>
+						<th>Name</th>
+					</tr>
+					<tr th:each="wear : ${season.wears}">
+						<td th:text="${wear.id}">Id</td>
+						<td th:text="${wear.name}">Name</td>
+					</tr>
+				</table></td>
 		</tr>
 	</table>
 

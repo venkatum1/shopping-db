@@ -22,7 +22,7 @@ public class SeasonController {
 
 	@GetMapping("/seasons")
 	public String getSeasons(ModelMap map) {
-		List<Season> seasons = repoSeason.findAll();
+		List<Season> seasons = repoSeason.findAllByOrderByIdDesc();
 
 		map.put("seasons", seasons);
 
@@ -45,14 +45,16 @@ public class SeasonController {
 
 		repoSeason.save(season);
 
-		// Fetch all seasons from season table
-		List<Season> seasons = repoSeason.findAll();
-
-		// map it to seasons variable
-		map.put("seasons", seasons);
-
-		// return the seasons list page
-		return "seasons";
+//		// Fetch all seasons from season table
+//		List<Season> seasons = repoSeason.findAll();
+//
+//		// map it to seasons variable
+//		map.put("seasons", seasons);
+//
+//		// return the seasons list page
+//		return "seasons";
+		
+		return "redirect:/seasons";
 	}
 
 	@GetMapping("/season/{seasonId}/edit")
@@ -74,10 +76,16 @@ public class SeasonController {
 	@GetMapping("/season/{seasonId}")
 	public String deleteSeason(ModelMap map, @PathVariable(name = "seasonId") Long seasonId) {
 
-		repoSeason.deleteById(seasonId);
+		// repoSeason.deleteById(seasonId);
+		Optional<Season> season = repoSeason.findById(seasonId);
+		Season newSeason = season.get();
+		newSeason.setX(true);
+		repoSeason.save(newSeason);
+		
+		
 
 		// Fetch all seasons from season table
-		List<Season> seasons = repoSeason.findAll();
+		List<Season> seasons = repoSeason.findAllByOrderByIdDesc();
 
 		// map it to seasons variable
 		map.put("seasons", seasons);

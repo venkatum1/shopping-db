@@ -1,16 +1,23 @@
 package com.wondroussoft.shopping.model.entities;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Season {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
+	private Boolean x;
+
+	@OneToMany(mappedBy = "seasonId")
+	private List<Wear> wears;
 
 	public Season() {
 	}
@@ -34,6 +41,22 @@ public class Season {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public Boolean getX() {
+		return x;
+	}
+
+	public void setX(Boolean x) {
+		this.x = x;
+	}
+
+	public List<Wear> getWears() {
+		return wears;
+	}
+
+	public void setWears(List<Wear> wears) {
+		this.wears = wears;
 	}
 
 }
