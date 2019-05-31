@@ -29,7 +29,7 @@ public class WearController {
 	public String getWearsBySeasonId(ModelMap map, @PathVariable(name = "seasonId") Long seasonId) {
 		Optional<Season> season = repoSeason.findById(seasonId);
 
-		List<Wear> wears = repoWear.findBySeasonId(seasonId);
+		List<Wear> wears = repoWear.findBySeasonIdAndX(seasonId, false);
 
 		map.put("season", season.get());
 		map.put("wears", wears);
@@ -56,6 +56,13 @@ public class WearController {
 		// return the wears list page
 		return "wears";
 	}
+	@GetMapping("/wear/{wearId}/edit")
+	public String getEditWearForm(ModelMap map,@PathVariable(name = "wearId") Long wearId) {
+		Optional<Wear> wear=repoWear.findById(wearId);
+		map.put("wear",wear.get());
+		return "create_wear";
+	}
+	
 
 	@GetMapping("/seasons/{seasonId}/wear")
 	public String getCreateWearForm(ModelMap map, @PathVariable(name = "seasonId") Long seasonId) {
@@ -71,10 +78,18 @@ public class WearController {
 			@PathVariable(name = "seasonId") Long seasonId) {
 		Optional<Season> season = repoSeason.findById(seasonId);
 
-		repoWear.deleteById(wearId);
+		//repoWear.deleteById(wearId);
+		
+		
+		
+		
+		Optional<Wear> wear = repoWear.findById(wearId);
+		Wear newWear = wear.get();
+		newWear.setX(true);
+		repoWear.save(newWear);
 
 		// Fetch all wears from wear table
-		List<Wear> wears = repoWear.findBySeasonId(seasonId);
+		List<Wear> wears = repoWear.findBySeasonIdAndX(seasonId, false);
 
 		// map it to wears variable
 		map.put("wears", wears);

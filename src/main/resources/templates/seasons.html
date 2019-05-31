@@ -38,12 +38,15 @@
 <body>
 	<h2>List of Seasons</h2>
 	<a href="/season"> Add Season</a>
-
-	<table id="seasons">
-
-		<tr>
+     <table id="seasons">
+	<tr>
 			<th>Id</th>
 			<th>Name</th>
+			<th>Details</th>
+			<th>Delete</th>
+			<th>Add Wears</th>
+			<th>Edit</th>
+			<th>Wears</th>
 		</tr>
 		<tr th:each="season : ${seasons}">
 			<td th:text="${season.id}">Id</td>

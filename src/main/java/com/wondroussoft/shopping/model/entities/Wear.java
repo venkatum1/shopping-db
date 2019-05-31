@@ -1,9 +1,12 @@
 package com.wondroussoft.shopping.model.entities;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Wear {
@@ -12,6 +15,11 @@ public class Wear {
 	private Long id;
 	private String name;
 	private Long seasonId;
+	private Boolean x;
+
+	@OneToMany(mappedBy = "wearId")
+	private List<Category> categories;
+
 
 	public Wear() {
 
@@ -45,6 +53,22 @@ public class Wear {
 
 	public void setSeasonId(Long seasonId) {
 		this.seasonId = seasonId;
+	}
+
+	public Boolean getX() {
+		return x;
+	}
+
+	public void setX(Boolean x) {
+		this.x = x;
+	}
+
+	public List<Category> getCategories() {
+		return categories;
+	}
+
+	public void setCategories(List<Category> categories) {
+		this.categories = categories;
 	}
 
 }

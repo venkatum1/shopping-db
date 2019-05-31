@@ -11,6 +11,7 @@ import org.springframework.data.repository.CrudRepository;
 
 @Repository
 public interface SeasonRepository extends CrudRepository<Season, Long> {
-	List<Season> findAllByOrderByIdDesc();
+	List<Season> findAll();
 	Optional<Season> findById(Long id);
+	List<Season> findByX(Boolean x);
 }

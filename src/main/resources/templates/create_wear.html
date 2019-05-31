@@ -5,26 +5,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-#itemdetail {
+#create_wear {
 	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 	border-collapse: collapse;
 	width: 30%;
 }
 
-#itemdetail td, #seasons th {
+#create_wear td, #create_wear th {
 	border: 1px solid #ddd;
 	padding: 8px;
 }
 
-#itemdetail tr:nth-child(even) {
+#create_wear tr:nth-child(even) {
 	background-color: #f2f2f2;
 }
 
-#itemdetail tr:hover {
+#create_wear tr:hover {
 	background-color: #ddd;
 }
 
-#itemdetail th {
+#create_wear th {
 	padding-top: 12px;
 	padding-bottom: 12px;
 	text-align: left;
@@ -39,12 +39,14 @@
 
 	<form action="#" th:action="@{'/seasons/' + ${seasonId} + '/wear'}"
 		th:object="${wear}" method="post">
-		<table border="1">
-			<tr>
-				<td><input type="text" name="name" /></td>
-			</tr>
-			<tr>
-				<td><input th:value="${seasonId}" type="hidden" name="seasonId" /></td>
+		<table id="create_wear" border="1">
+	<tr>
+	<td th:if="${wear}"><input th:value="${wear.id}"type="hidden" name="id" 
+	th:if="${wear}"><input th:value="${wear.name}"type="text" name="name" 
+	autocomplete="off" placeholder="Enter new wear"/></td>
+	<td th:unless="${wear}"><input type="hidden" name="id" 
+		th:unless="${wear}"><input type="text" name="name" 
+		autocomplete="off" placeholder="Enter new wear"/></td>
 			</tr>
 			<tr>
 				<td><input type="submit" value="Submit" /></td>

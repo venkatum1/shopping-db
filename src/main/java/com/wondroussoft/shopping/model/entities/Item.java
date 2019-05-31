@@ -9,13 +9,22 @@ import javax.persistence.Id;
 @Entity
 public class Item {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
 	private int price;
 	private String size;
 	private String color;
 	private Long categoryId;
+	private Boolean x;
+
+	public boolean isX() {
+		return x;
+	}
+
+	public void setX(boolean x) {
+		this.x = x;
+	}
 
 	public Item() {
 	}

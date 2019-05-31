@@ -11,7 +11,7 @@
 	width: 30%;
 }
 
-#wears td, #seasons th {
+#wears td, #wears th {
 	border: 1px solid #ddd;
 	padding: 8px;
 }
@@ -42,6 +42,10 @@
 		<tr>
 			<th>Id</th>
 			<th>Name</th>
+			<th>Delete</th>
+			<th>Add category</th>
+			<th>Edit</th>
+			<th>categories</th>
 		</tr>
 		<tr th:each="wear: ${wears}">
 			<td th:text="${wear.id}">Id</td>
@@ -49,6 +53,17 @@
 			<td><a
 				th:href="@{'/seasons/' + ${season.id} + '/wear/' + ${wear.id}}">Delete</a></td>
 			<td><a th:href="@{'/wears/' + ${wear.id} + '/categories'}">Categories</a></td>
+			<td><a th:href="@{'/wear/' + ${wear.id} + '/edit'}">Edit</a></td>
+			<td><table id="categories">
+					<tr>
+						<th>Id</th>
+						<th>Name</th>
+					</tr>
+					<tr th:each="category : ${wear.categories}">
+						<td th:text="${category.id}">Id</td>
+						<td th:text="${category.name}">Name</td>
+					</tr>
+					</table></td>
 		</tr>
 	</table>
 
