@@ -41,11 +41,13 @@
 		method="post">
 		<table id="create_season" border="1">
 			<tr>
-		<td th:if="${season}"><input th:value="${season.id}"type="hidden" name="id" 
-		th:if="${season}"><input th:value="${season.name}"
-		type="text" name="name" autocomplete="off" placeholder="Enter new season"/></td>
-		<td th:unless="${season}"><input type="hidden" name="id" 
-		th:unless="${season}"><input type="text" name="name" autocomplete="off" placeholder="Enter new season" /></td>
+				<td th:if="${season}"><input th:value="${season.id}"
+					type="hidden" name="id" th:if="${season}"><input
+					th:value="${season.name}" type="text" name="name"
+					autocomplete="off" placeholder="Enter new season" /></td>
+				<td th:unless="${season}"><input type="hidden" name="id"
+					th:unless="${season}"><input type="text" name="name"
+					autocomplete="off" placeholder="Enter new season" /></td>
 			</tr>
 			<tr>
 				<td><input type="submit" value="Submit" /></td>

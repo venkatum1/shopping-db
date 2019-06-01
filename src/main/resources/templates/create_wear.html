@@ -40,13 +40,15 @@
 	<form action="#" th:action="@{'/seasons/' + ${seasonId} + '/wear'}"
 		th:object="${wear}" method="post">
 		<table id="create_wear" border="1">
-	<tr>
-	<td th:if="${wear}"><input th:value="${wear.id}"type="hidden" name="id" 
-	th:if="${wear}"><input th:value="${wear.name}"type="text" name="name" 
-	autocomplete="off" placeholder="Enter new wear"/></td>
-	<td th:unless="${wear}"><input type="hidden" name="id" 
-		th:unless="${wear}"><input type="text" name="name" 
-		autocomplete="off" placeholder="Enter new wear"/></td>
+			<tr>
+				<td><input th:value="${seasonId}" type="hidden" name="seasonId"></td>
+				<td th:if="${wear}"><input th:value="${wear.id}" type="hidden"
+					name="id" th:if="${wear}"><input th:value="${wear.name}"
+					type="text" name="name" autocomplete="off"
+					placeholder="Enter new wear" /></td>
+				<td th:unless="${wear}"><input type="hidden" name="id"
+					th:unless="${wear}"><input type="text" name="name"
+					autocomplete="off" placeholder="Enter new wear" /></td>
 			</tr>
 			<tr>
 				<td><input type="submit" value="Submit" /></td>

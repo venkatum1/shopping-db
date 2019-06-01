@@ -67,7 +67,7 @@ public class WearController {
 	@GetMapping("/seasons/{seasonId}/wear")
 	public String getCreateWearForm(ModelMap map, @PathVariable(name = "seasonId") Long seasonId) {
 
-		map.put("season_id", seasonId);
+		map.put("seasonId", seasonId);
 
 		// return the create wear page
 		return "create_wear";
